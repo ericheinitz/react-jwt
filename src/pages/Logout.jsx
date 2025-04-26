@@ -1,23 +1,22 @@
-import { useEffect } from 'react'
-import axios from '../api/axios'
+import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 
 export default function Logout() {
+  const { logout } = useAuth()
   const navigate = useNavigate()
 
-  useEffect(() => {
-    axios.get('/logout', { withCredentials: true })
-      .then(() => {
-        navigate('/')
-      })
-      .catch(() => {
-        navigate('/')
-      })
-  }, [navigate])
+  const handleLogout = async () => {
+    try {
+      await logout()
+      navigate('/')
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error)
+    }
+  }
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <p>Logging out...</p>
-    </div>
+    <button
+      className="bg-red-500 hover:bg-red-700 text-white cursor-pointer transition-colors px-2 rounded"
+      onClick={handleLogout}>Cerrar Sesión</button>
   )
 }

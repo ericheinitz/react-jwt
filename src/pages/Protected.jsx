@@ -1,38 +1,19 @@
 import { useEffect, useState } from 'react'
-import axios from '../api/axios'
 import { Link, useNavigate } from 'react-router-dom'
+import useAuth from '../hooks/useAuth'
+import AuthenticatedLayout from '../layouts/AuthenticatedLayout'
 
 export default function Protected() {
-    const [user, setUser] = useState(null)
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        axios.get('/validate')
-            .then(res => setUser(res.data.user))
-            .catch(() => navigate('/'))
-    }, [navigate])
-
-
-    if (!user) return (
-        <div className="flex items-center justify-center h-screen bg-gray-100">
-            <p className="text-xl ml-4">Cargando...</p>
-        </div>
-    )
+    const { user, loading } = useAuth()
 
     return (
-        <div className='h-screen flex items-center justify-center bg-emerald-200'>
-            <div className='flex flex-col items-center justify-center space-y-5'>
-                <h1 className='text-9xl'>🔓</h1>
-                <h2 className="text-2xl font-bold">Esta es una pagina protegida {user.email}</h2>
-                <div className='space-x-2'>
-                    <Link className="mt-4 bg-red-500 text-white p-2 rounded" to="/logout" >
-                        Logout
-                    </Link>
-                    <Link className="mt-4 bg-blue-500 text-white p-2 rounded" to="/">
-                        Ir a Home
-                    </Link>
-                </div>
+        <AuthenticatedLayout user={user}>
+            <div className='py-12'>
+                <article className='max-w-7xl mx-auto bg-white text-slate-700 p-6 rounded shadow-md'>
+                    <h2 className='text-2xl font-bold text-center'>Pagina protegida</h2>
+                    <p className='mt-4 text-center'>Bienvenido  <strong>{user?.email}</strong></p>
+                </article>
             </div>
-        </div>
+        </AuthenticatedLayout>
     )
 }
