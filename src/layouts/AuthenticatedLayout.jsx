@@ -1,11 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ApplicationLogo from '../components/ApplicationLogo';
 import { Link } from 'react-router-dom';
 import Logout from '../pages/Logout';
+import axiosInstance from '../api/axios';
 
 export default function AuthenticatedLayout({ user, loading, children }) {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [backendDisconnected, setBackendDisconnected] = useState(false);
 
+    useEffect(() => {
+        const checkBackend = async () => {
+            try {
+                await axiosInstance.get('/healthcheck');
+                setBackendDisconnected(false);
+            } catch (error) {
+                setBackendDisconnected(true);
+            }
+        };
+
+        checkBackend();
+        return () => { };
+    }, []);
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
@@ -30,7 +45,11 @@ export default function AuthenticatedLayout({ user, loading, children }) {
                             </div>
                         )}
                     </div>
-
+                    {backendDisconnected && (
+                        <div
+                            className="bg-red-500 text-white text-sm font-bold px-4 flex justify-center items-center rounded-md animate-pulse"
+                        >⚠️ Backend desconectado</div>
+                    )}
                     <div className="hidden md:flex items-center space-x-2">
                         {user ? (
                             <>
