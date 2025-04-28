@@ -16,7 +16,7 @@ export default function Logout() {
 
   return (
     <button
-      className="bg-red-500 hover:bg-red-700 text-white cursor-pointer transition-colors px-2 rounded"
+      className="text-sm font-bold text-white bg-red-600 hover:bg-red-500 border border-red-500 hover:border-red-600 rounded-md px-2 py-1 transition duration-100 cursor-pointer"
       onClick={handleLogout}>Cerrar Sesión</button>
   )
 }
