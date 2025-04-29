@@ -22,7 +22,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-slate-100">
+    <div className="flex flex-col items-center justify-center h-screen bg-slate-300/75 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')]">
       <Link to="/" className="flex items-center justify-center mb-6">
         <ApplicationLogo className="stroke-amber-400 h-12 w-12" />
         <span className="text-3xl font-bold text-slate-700 ml-4">Middle-Code</span>

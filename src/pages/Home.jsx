@@ -13,19 +13,19 @@ export default function Home() {
     return (
         <AuthenticatedLayout user={user}>
 
-            <article className="sm:mt-12 bg-white border-b border-slate-200 shadow-md">
+            <article className="lg:mt-10 bg-white border-b border-slate-200 shadow-md">
                 <div
-                    className='max-w-7xl mx-auto grid sm:grid-cols-2'
+                    className='max-w-7xl mx-auto grid lg:grid-cols-2'
                 >
                     <div className="flex flex-col items-center justify-center">
 
-                        <p className="mt-4 text-lg sm:text-2xl text-center text-slate-700 p-2">
+                        <p className="mt-4 text-lg lg:text-2xl text-center text-slate-700 p-2">
                             Esta aplicación combina un <strong>frontend en React</strong> con un <strong>backend en Go</strong>, implementando autenticación mediante <strong>JWT</strong>
                             (usando cookies HTTP only) y <strong>PostgreSQL</strong>.
                         </p>
 
-                        <div className="space-y-4 my-6">
-                            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <div className="space-y-4 my-6 lg:mt-12">
+                            <div className="flex flex-col lg:flex-row justify-center space-y-6 lg:space-x-6">
                                 <a
                                     href="https://github.com/ericheinitz/go-jwt"
                                     target="_blank"
@@ -52,14 +52,14 @@ export default function Home() {
                         </div>
 
                     </div>
-                    <div className="hidden sm:flex flex-col items-center justify-center w-full h-full">
+                    <div className="hidden lg:flex flex-col items-center justify-center w-full h-full">
                         <ApplicationLogo className="stroke-amber-400 w-2/4 h-2/4 drop-shadow-md drop-shadow-amber-400" />
                         <h1 className="text-slate-600 text-6xl font-bold text-shadow-lg/30">Middle-Code</h1>
                     </div>
                 </div>
             </article>
-            <div className="sm:py-12">
-                <article className="max-w-7xl mx-auto bg-white px-2 pb-8 sm:px-8 rounded shadow-md">
+            <div className="lg:py-10">
+                <article className="max-w-7xl mx-auto bg-white px-2 pb-8 lg:px-8 rounded shadow-md">
                     <div className='flex items-center justify-center space-x-2'>
                         <a href="https://react.dev" target="_blank">
                             <img src={reactLogo} className="h-16" alt="React logo" />

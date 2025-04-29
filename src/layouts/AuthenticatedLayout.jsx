@@ -99,7 +99,10 @@ export default function AuthenticatedLayout({ user, loading, children }) {
                     </div>
                 </div>
             </nav>
-            {children}
+            <main>
+
+                {children}
+            </main>
         </div>
     );
 }
