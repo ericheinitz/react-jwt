@@ -30,7 +30,7 @@ export default function AuthenticatedLayout({ user, loading, children }) {
     }
 
     return (
-        <div className="min-h-screen bg-slate-100">
+        <div className="min-h-screen bg-slate-300/75 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')]">
             <nav className="bg-slate-50 border-b border-slate-200 shadow-md">
                 <div className="flex justify-between py-2 px-4">
                     <div className="flex space-x-8">
