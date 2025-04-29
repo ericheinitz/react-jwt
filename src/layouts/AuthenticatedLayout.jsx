@@ -35,7 +35,7 @@ export default function AuthenticatedLayout({ user, loading, children }) {
                 <div className="flex justify-between py-2 px-4">
                     <div className="flex space-x-8">
                         <Link to="/" className="flex items-center text-slate-700 hover:text-slate-900">
-                            <ApplicationLogo className="stroke-amber-400 h-8 w-8 mr-2" />
+                            <ApplicationLogo className="stroke-amber-400 h-6 w-6 mr-2" />
                             <span className="font-bold">Middle-Code</span>
                         </Link>
 
